@@ -192,6 +192,9 @@ public class Game implements IGame {
         logger.println("Invalid color declaration - random color chosen instead.");
         return randomColors.get(0);
     }
+    @Override
+    public IDeck getDeckInfo() {return this.deck;};
+
 
     @Override
     public List<IPlayerInfo> getPlayerInfo() {
