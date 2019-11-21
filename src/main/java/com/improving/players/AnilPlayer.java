@@ -35,12 +35,10 @@ public class AnilPlayer implements IPlayer {
                 if (game.isPlayable(card)) {
                     hand.remove(card);
                     game.playCard(card, Optional.of(Colors.Red), this);
-                    System.out.println(card + " was played ");
                     return;
                 }
             }
             hand.add(draw(game));
-            System.out.println("Drew card");
         }
 
         public void playHighestValue(IGame game) {
