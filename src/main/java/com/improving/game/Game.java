@@ -221,10 +221,9 @@ public class Game implements IGame {
 
     @Override
     public IPlayer getPreviousPlayer() {
-        if (turnEngine <= 0) {
-            turnEngine = turnEngine + numPlayers;
-        }
-        var previousPlayer = (turnEngine + turnDirection - 1) % numPlayers;
+        var playerIndex = (turnEngine + turnDirection - 1);
+        var previousPlayer = playerIndex % numPlayers;
+        if (previousPlayer < 0) previousPlayer += numPlayers;
         return players.get(previousPlayer);
     }
 
