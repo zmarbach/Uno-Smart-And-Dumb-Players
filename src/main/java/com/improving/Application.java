@@ -14,7 +14,7 @@ public class Application {
         var wins = new HashMap<String, Integer>();
         var random = new Random();
 
-        while(game.getPlayers().size() > 8) {
+        while(game.getPlayers().size() > 4) {
             var rIndex = random.nextInt(game.getPlayers().size());
             if (!game.getPlayers().get(rIndex).getClass().equals(ZachPlayer.class))
                 game.getPlayers().remove(rIndex);
