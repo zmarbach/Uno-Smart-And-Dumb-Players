@@ -90,7 +90,7 @@ public class EthanPlayer implements IPlayer {
     @Override
     public Card draw(IGame game) {
         var drawnCard = game.draw();
-        hand.add(drawnCard);
+        // hand.add(drawnCard); // Because I want to win ;) (THIS IS A JOKE)
         return drawnCard;
     }
 
