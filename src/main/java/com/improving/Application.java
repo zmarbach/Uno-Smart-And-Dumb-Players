@@ -25,7 +25,14 @@ public class Application {
         }
 
         for (int i = 0; i < 10000; i++) {
-            game.play();
+            try {
+                game.play();
+            } catch (Exception e) {
+                for (var p : game.getPlayers()) {
+                    System.out.println(p.getName());
+                    return;
+                }
+            }
             var name = game.getWinningPlayer().getName();
             wins.put(name, wins.get(name) + 1);
         }
