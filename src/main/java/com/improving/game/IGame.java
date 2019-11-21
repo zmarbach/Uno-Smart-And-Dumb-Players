@@ -18,6 +18,6 @@ public interface IGame {
 
     public IPlayer getNextNextPlayer();
 
-
+    public IDeck getDeckInfo();
 }
 
