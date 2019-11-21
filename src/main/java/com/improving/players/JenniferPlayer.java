@@ -53,16 +53,16 @@ public class JenniferPlayer implements IPlayer {
                 if (game.getNextPlayer().handSize() <=1 ){
                     smartMove_MakeNextPlayerDrawIfUno(game, card);
                 }else
-                System.out.println(getName() + " played a " + card + " from hand.");
+//                System.out.println(getName() + " played a " + card + " from hand.");
                 playSmartColorCard(game);
                 return;
             }
         }
         Card cardDrawn = draw(game);
-        System.out.println("Player-" + getName() + " drew a card ");
+//        System.out.println("Player-" + getName() + " drew a card ");
         handCards.add(cardDrawn);
         if (game.isPlayable(cardDrawn)) {
-            System.out.println("and decided to play it. --> " + cardDrawn);
+//            System.out.println("and decided to play it. --> " + cardDrawn);
             playSmartColorCard(game);
             return;
         }
@@ -76,7 +76,7 @@ public class JenniferPlayer implements IPlayer {
 
     public Colors choseWildColor(IGame game, Card card){
         if (yellowIsCommonColor() == true) {
-            System.out.println(handCards);
+//            System.out.println(handCards);
             mostCommonColor = Colors.Yellow;
             game.playCard(card, Optional.of(mostCommonColor), this);
         } else if (redIsCommonColor() == true) {
