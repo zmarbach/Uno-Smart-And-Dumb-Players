@@ -11,7 +11,7 @@ public class JenniferPlayer implements IPlayer {
     public static int takeTurnCount = 1;
     private final List<Card> handCards;
     private static int gameOverUno = 0;
-    private String name;
+    private String name ="Jennifer";
     Colors mostCommonColor;
     int yellowCommon = 1;
     int blueCommon = 1;
@@ -30,7 +30,7 @@ public class JenniferPlayer implements IPlayer {
     }
 
     public String getName() {
-        return this.toString().replace("com.improving.players.","");
+        return name;
     }
 
 
@@ -177,6 +177,9 @@ public class JenniferPlayer implements IPlayer {
     @Override
     public Card draw(IGame game) {
         Card card = game.draw();
+        if(card != null){
+            handCards.add(card);
+        }
         return card;
     }
 
