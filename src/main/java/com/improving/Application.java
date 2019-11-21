@@ -30,6 +30,7 @@ public class Application {
             } catch (Exception e) {
                 for (var p : game.getPlayers()) {
                     System.out.println(p.getName());
+                    e.printStackTrace();
                     return;
                 }
             }
