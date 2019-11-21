@@ -53,7 +53,7 @@ public class ZachPlayer implements IPlayer {
         }
     }
 
-    private List<Card> getHand() {
+    public List<Card> getHand() {
         return hand;
     }
 

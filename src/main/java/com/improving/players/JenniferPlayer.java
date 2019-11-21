@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+
 public class JenniferPlayer implements IPlayer {
     public static int takeTurnCount = 1;
     private final List<Card> handCards;
@@ -37,6 +37,11 @@ public class JenniferPlayer implements IPlayer {
     public void newHand(List<Card> cards) {
         this.handCards.clear();
         this.getHandCards().addAll(cards);
+    }
+
+    @Override
+    public List<Card> getHand() {
+        return handCards;
     }
 
     public static int getTakeTurnCount() {
