@@ -11,13 +11,11 @@ import java.util.Optional;
 public class AnilPlayer implements IPlayer {
 
         LinkedList<Card> hand;
-        private String name;
         private java.util.List<Optional> chooseColor;
 
 
-        public AnilPlayer(String name, Deck deck) {
+        public AnilPlayer(Deck deck) {
             this.hand = new LinkedList<>();
-            this.name = name;
             dealHand(deck);
         }
 
@@ -54,7 +52,7 @@ public class AnilPlayer implements IPlayer {
 
 
         public String getName() {
-            return name;
+            return "Anil";
         }
 
         @Override
