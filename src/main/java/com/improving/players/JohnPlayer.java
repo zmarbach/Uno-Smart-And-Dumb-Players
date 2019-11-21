@@ -196,6 +196,6 @@ public class JohnPlayer implements IPlayer {
                 return color;
             }
         }
-//
+
 
     }
