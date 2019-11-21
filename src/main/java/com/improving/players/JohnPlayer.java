@@ -157,6 +157,10 @@ public class JohnPlayer implements IPlayer {
                 Colors color;
                 Map<Colors, Integer> mapOfColors = new HashMap<>();
 
+                if(handSize() == 0) {
+                    return Colors.Red;
+                }
+
 
 
                 var red = 0;
@@ -183,7 +187,10 @@ public class JohnPlayer implements IPlayer {
                 }
                 var colorOptional = mapOfColors.entrySet().stream()
                         .max(Comparator.comparing(Map.Entry::getValue));
-                color = colorOptional.get().getKey();
+                if (colorOptional.isPresent()) {
+                    color = colorOptional.get().getKey();
+                }
+                else color = Colors.Blue;
 
                 System.out.println("Wild Card Chosen Color: " + color);
                 return color;
