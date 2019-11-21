@@ -29,7 +29,6 @@ public class JenniferPlayer implements IPlayer {
         return handCards.size();
     }
 
-    @Override
     public String getName() {
         return this.toString().replace("com.improving.players.","");
     }
