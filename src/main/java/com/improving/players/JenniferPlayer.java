@@ -54,6 +54,8 @@ public class JenniferPlayer implements IPlayer {
                 }else
 //                System.out.println(getName() + " played a " + card + " from hand.");
                 playSmartColorCard(game);
+                //TODO:else if previous player hand is < 3 then/and if i have reverse and skip, play it
+
                 return;
             }
         }
@@ -128,6 +130,12 @@ public class JenniferPlayer implements IPlayer {
         if (handCards.contains(Faces.Draw_2) || handCards.contains(Faces.Draw_4)) {
             handCards.remove(card);
             game.playCard(card, Optional.of(choseWildColor(game, card)), this);
+        }else if(handCards.contains(Faces.Skip)){
+            handCards.remove(card);
+            game.playCard(card, Optional.of(choseWildColor(game, card)), this);
+        }else if (handCards.contains(Faces.Reverse)){
+            handCards.remove(card);
+            game.playCard(card, Optional.of(choseWildColor(game, card)), this);
         }
     }
 
@@ -190,4 +198,7 @@ public class JenniferPlayer implements IPlayer {
     public List<Card> getHandCards() {
         return handCards;
     }
+
+
+
 }
