@@ -10,6 +10,8 @@ public interface IGame {
 
     public Card draw();
 
+    public Card drawForTurn();
+
     public List<IPlayerInfo> getPlayerInfo();
 
     public IPlayer getNextPlayer();

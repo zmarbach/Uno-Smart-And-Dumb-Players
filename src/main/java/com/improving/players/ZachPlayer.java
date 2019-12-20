@@ -3,7 +3,9 @@ package com.improving.players;
 import com.improving.game.*;
 import org.springframework.stereotype.Component;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -19,14 +21,24 @@ public class ZachPlayer implements IPlayer {
         var mostCommonColor = getMostCommonColor();
         List<Card> cardsWithMostCommonColor = hand.stream().filter(card -> card.getColor().equals(mostCommonColor)).collect(Collectors.toList());
         List<Card> otherCards = hand.stream().filter(card -> card.getColor() != mostCommonColor).collect(Collectors.toList());
+        List<Card> drawCards = hand.stream().filter((card -> (card.getFace().equals(Faces.Draw_2)) || (card.getFace().equals(Faces.Draw_4)))).collect(Collectors.toList());
 
         boolean ableToScrewOtherPlayer = false;
-        if (iGame.getNextPlayer().handSize() < 3) {
+        if (iGame.getNextPlayer().handSize() <= 2 ) {
             ableToScrewOtherPlayer = screwOtherPlayer(iGame);
         }
 
         //play normal if next player has at least 3 cards left
         if (ableToScrewOtherPlayer == false) {
+
+            //TODO: maybe change this...testing out the theory of prioritizing playing draw cards first
+            for (Card card : drawCards){
+                if (iGame.isPlayable(card)) {
+                    prepPlayReport(card, iGame);
+                    return;
+                }
+            }
+
             for (Card card : cardsWithMostCommonColor) {
                 if (iGame.isPlayable(card)) {
                     prepPlayReport(card, iGame);
@@ -169,5 +181,15 @@ public class ZachPlayer implements IPlayer {
             iGame.playCard(card, Optional.ofNullable(null), this);
 
         }
+    }
+
+    @Override
+    public void playInfo(Card card, Optional<Color> color, IPlayerInfo player) {
+        //TODO ---
+    }
+
+    @Override
+    public void playInfo(IPlayerInfo player) {
+
     }
 }

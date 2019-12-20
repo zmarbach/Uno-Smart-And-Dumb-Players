@@ -31,6 +31,7 @@ public class Game implements IGame {
 
         for (var p : players) {
             p.newHand(getStartingHand(deck));
+
         }
 
         logger.println("Top Card on Discard Pile: " + topCard.toString());
